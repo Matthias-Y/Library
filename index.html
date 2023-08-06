@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1>Library</h1>
-        <button class="button add-button">+ Add Book</button>
+        <button class="button add-button">+ Add New Book</button>
         <dialog class="modal" id="modal">
             <form action="" method="dialog">
                 <div class="form-entry">
@@ -24,6 +24,10 @@
                 <div class="form-entry">
                     <label for="pages">Pages:</label>
                     <input type="number" id="pages" name="pages" required>
+                </div>
+                <div class="form-entry">
+                    <label for="read">Read?</label>
+                    <input type="checkbox" id="read" name="read" required>
                 </div>
                 <button class="button" type="submit">Add Book</button>
                 <button class="button close-button">Cancel</button>

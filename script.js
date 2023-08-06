@@ -1,10 +1,10 @@
 let myLibrary = [];
 
-function Book(author, title, pages, read){
+function Book(author, title, pages, isRead){
     this.author = author;
     this.title = title;
     this.pages = parseInt(pages);
-    this.read = read;
+    this.isRead = isRead;
 }
 
 function addBookToLibrary(Book){
@@ -17,7 +17,7 @@ function removeBookFromLibrary() {
 
 const modal = document.querySelector('#modal');
 const openModal = document.querySelector('.add-button');
-const closeModal = document.querySelector('.close-button');
+const closeModal = document.querySelector('.close-button')
 
 openModal.addEventListener('click', () => {
     modal.showModal();
@@ -26,3 +26,4 @@ openModal.addEventListener('click', () => {
 closeModal.addEventListener('click', () => {
     modal.close();
 })
+
