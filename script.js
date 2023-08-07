@@ -27,6 +27,7 @@ function renderBookCard(book){
     author.textContent = book.author;
     pages.textContent = "Pages: " + book.pages;
     removeButton.textContent = 'Remove Book';
+    readButton.id = 'toggle-button';
     
     bookCard.className = "book-card";
     bookCard.appendChild(title);
@@ -42,6 +43,19 @@ function renderBookCard(book){
         bookCard.classList.add('not-read')
         readButton.textContent = 'Not Read';
     }
+
+    readButton.addEventListener('click', () => {
+        readButton.textContent = readButton.textContent == 'Read' ? 'Not Read' : 'Read';
+
+        if (readButton.textContent == 'Read'){
+            readButton.parentNode.classList.remove('not-read');
+            readButton.parentNode.classList.add('read');
+        } else {
+            readButton.parentNode.classList.remove('read');
+            readButton.parentNode.classList.add('not-read');
+        }
+    })
+
     return bookCard;
 }
 
@@ -59,6 +73,7 @@ const openModal = document.querySelector('.add-button');
 const closeModal = document.querySelector('.close-button');
 const submitButton = document.querySelector('button[type="submit"]');
 const booksContainer = document.querySelector('.books-container');
+const readToggleButton = document.querySelector('#toggle-button');
 
 openModal.addEventListener('click', () => {
     modal.showModal();
@@ -89,3 +104,4 @@ submitButton.addEventListener('click', (e) => {
         form.reportValidity();
     }
 })
+
