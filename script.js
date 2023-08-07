@@ -20,16 +20,28 @@ function renderBookCard(book){
     const title = document.createElement('p');
     const author = document.createElement('p');
     const pages = document.createElement('p');
+    const readButton = document.createElement('button');
+    const removeButton = document.createElement('button');
 
     title.textContent = book.title;
     author.textContent = book.author;
     pages.textContent = "Pages: " + book.pages;
+    removeButton.textContent = 'Remove Book';
     
     bookCard.className = "book-card";
     bookCard.appendChild(title);
     bookCard.appendChild(author);
     bookCard.appendChild(pages);
-    
+    bookCard.appendChild(readButton);
+    bookCard.appendChild(removeButton);
+
+    if (book.isRead){
+        bookCard.classList.add('read')
+        readButton.textContent = 'Read';
+    } else {
+        bookCard.classList.add('not-read')
+        readButton.textContent = 'Not Read';
+    }
     return bookCard;
 }
 

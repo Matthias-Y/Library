@@ -10,3 +10,17 @@
 .book-card {
     border: 1px solid black;
 }
+
+.book-card button{
+    display: block;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+.read {
+    background-color: rgb(130, 252, 130);
+}
+
+.not-read {
+    background-color: rgb(245, 87, 87);
+}
