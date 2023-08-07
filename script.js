@@ -15,10 +15,38 @@ function removeBookFromLibrary() {
 
 }
 
+function renderBookCard(book){
+    const bookCard = document.createElement('div');
+    const title = document.createElement('p');
+    const author = document.createElement('p');
+    const pages = document.createElement('p');
+
+    title.textContent = book.title;
+    author.textContent = book.author;
+    pages.textContent = "Pages: " + book.pages;
+    
+    bookCard.className = "book-card";
+    bookCard.appendChild(title);
+    bookCard.appendChild(author);
+    bookCard.appendChild(pages);
+    
+    return bookCard;
+}
+
+function renderBookGrid(myLibrary){
+    booksContainer.textContent = '';
+
+    for (let book of myLibrary) {
+        let bookCard = renderBookCard(book);
+        booksContainer.appendChild(bookCard);
+    }
+}
+
 const modal = document.querySelector('#modal');
 const openModal = document.querySelector('.add-button');
 const closeModal = document.querySelector('.close-button');
 const submitButton = document.querySelector('button[type="submit"]');
+const booksContainer = document.querySelector('.books-container');
 
 openModal.addEventListener('click', () => {
     modal.showModal();
@@ -42,6 +70,7 @@ submitButton.addEventListener('click', (e) => {
 
         let book = new Book(title, author, pages, isRead);
         addBookToLibrary(book);
+        renderBookGrid(myLibrary);
         form.reset();
         modal.close();
     } else {

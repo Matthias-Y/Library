@@ -1,0 +1,12 @@
+.books-container {
+    display: grid;
+    grid-auto-columns: 200px;
+    grid-auto-flow: column;
+    gap: 15px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.book-card {
+    border: 1px solid black;
+}
