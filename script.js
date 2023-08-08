@@ -50,9 +50,11 @@ function renderBookCard(book){
         if (readButton.textContent == 'Read'){
             readButton.parentNode.classList.remove('not-read');
             readButton.parentNode.classList.add('read');
+            book.isRead = true;
         } else {
             readButton.parentNode.classList.remove('read');
             readButton.parentNode.classList.add('not-read');
+            book.isRead = false;
         }
     })
 
