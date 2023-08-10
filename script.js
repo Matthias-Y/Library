@@ -11,8 +11,16 @@ function addBookToLibrary(book){
     myLibrary.push(book);
 }
 
-function removeBookFromLibrary() {
+function removeBookFromLibrary(e) {
+    let bookCard = e.currentTarget.parentNode;
+    let bookTitle = e.currentTarget.parentNode.firstChild.textContent;
+    bookCard.remove();
 
+    for (let i = 0; i < myLibrary.length; i++){
+        if (myLibrary[i].title == bookTitle){
+            myLibrary.splice(i, 1);
+        }
+    }
 }
 
 function renderBookCard(book){
@@ -57,6 +65,8 @@ function renderBookCard(book){
             book.isRead = false;
         }
     })
+
+    removeButton.addEventListener('click', removeBookFromLibrary);
 
     return bookCard;
 }
